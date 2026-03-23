@@ -51,12 +51,6 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div style={{ paddingTop: 12 }}>
-              <CallbackButton
-                variant="primary"
-                style={{ display: "flex", justifyContent: "center", padding: "14px 0", fontSize: 15, width: "100%", boxShadow: "none" }}
-              />
-            </div>
           </div>
         </div>
       )}
