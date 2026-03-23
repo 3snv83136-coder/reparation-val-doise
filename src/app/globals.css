@@ -100,4 +100,8 @@ a { color: inherit; }
   --color-danger: #DC2626;
   --color-danger-bg: #FEF2F2;
   --color-success: #38A169;
+  --color-cta: #F7941D;
+  --color-cta-hover: #e5850f;
+  --color-primary-hover: #e5850f;
+  --color-green-dark: #2f855a;
 }
