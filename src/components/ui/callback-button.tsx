@@ -15,8 +15,13 @@ export function CallbackButton({ variant = "primary", style, className }: Callba
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    await fetch("/api/rappel", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nom, telephone: phone }),
+    });
     setSubmitted(true);
   }
 
