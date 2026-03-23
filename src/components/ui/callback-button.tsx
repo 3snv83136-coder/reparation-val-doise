@@ -20,7 +20,7 @@ export function CallbackButton({ variant = "primary", style, className }: Callba
     await fetch("/api/rappel", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nom, telephone: phone }),
+      body: JSON.stringify({ nom: name, telephone: phone }),
     });
     setSubmitted(true);
   }
