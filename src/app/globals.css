@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM VERROUILLÉ — NE PLUS MODIFIER
+   Urgence Canalisation Val d'Oise
+   Style : artisansminute.fr (orange, propre, centré)
+   ═══════════════════════════════════════════════ */
+
+@theme {
+  --color-primary: #F7941D;
+  --color-primary-hover: #e5850f;
+  --color-primary-light: #FFF7ED;
+  --color-dark: #2D3748;
+  --color-cream: #FFFBF5;
+  --color-light-grey: #F7FAFC;
+  --color-mid-grey: #E2E8F0;
+  --color-border: #E2E8F0;
+  --color-text-primary: #2D3748;
+  --color-text-secondary: #718096;
+  --color-text-muted: #A0AEC0;
+  --color-green: #38A169;
+}
+
+/* ─── Reset ─── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ─── Typography : Barlow Condensed (display) + DM Sans (body) ─── */
+body {
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  color: #2D3748;
+  background: #ffffff;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #2D3748;
+}
+
+/* ─── Focus & Selection ─── */
+*:focus-visible { outline: 2px solid #F7941D; outline-offset: 2px; }
+::selection { background: #F7941D; color: white; }
+
+/* ─── Containers centrés (GARANTIS, pas Tailwind) ─── */
+.container-main {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.container-narrow {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.container-tight {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ─── Links ─── */
+a { color: inherit; }
+
+/* ─── Utilities ─── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+}
+
+/* ─── Admin layout ─── */
+.admin-main {
+  flex: 1;
+  padding: 24px;
+  margin-left: 0;
+}
+@media (min-width: 1024px) {
+  .admin-main {
+    margin-left: 256px;
+    padding: 32px;
+  }
+}
+
+/* ─── Admin compatibility (classes Tailwind utilisées dans les pages admin) ─── */
+@theme {
+  --color-action: #F7941D;
+  --color-action-light: #FFF7ED;
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.5);
+  --color-danger: #DC2626;
+  --color-danger-bg: #FEF2F2;
+  --color-success: #38A169;
+}

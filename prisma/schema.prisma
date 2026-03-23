@@ -1,0 +1,196 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// --- Site public ---
+
+model Reservation {
+  id              String   @id @default(cuid())
+  nom             String
+  prenom          String
+  telephone       String
+  email           String
+  adresse         String
+  codePostal      String
+  ville           String
+  typeService     String
+  niveauUrgence   String   @default("urgent")
+  dateRdv         DateTime
+  creneauHoraire  String
+  description     String
+  statut          String   @default("en_attente")
+  emailEnvoye     Boolean  @default(false)
+  adminNotifie    Boolean  @default(false)
+  intervention    Intervention?
+  devis           Devis[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  nom       String
+  email     String
+  telephone String?
+  sujet     String
+  message   String
+  lu        Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Avis {
+  id               String    @id @default(cuid())
+  nom              String
+  ville            String
+  note             Int
+  commentaire      String
+  dateIntervention DateTime?
+  affiche          Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+}
+
+// --- Back-office ---
+
+model Admin {
+  id          String    @id @default(cuid())
+  email       String    @unique
+  motDePasse  String
+  nom         String
+  sessions    Session[]
+  createdAt   DateTime  @default(now())
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  adminId   String
+  admin     Admin    @relation(fields: [adminId], references: [id])
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Intervention {
+  id                  String    @id @default(cuid())
+  reservationId       String?   @unique
+  reservation         Reservation? @relation(fields: [reservationId], references: [id])
+  typeIntervention    String
+  dateIntervention    DateTime
+  duree               String?
+  adresseClient       String
+  nomClient           String
+  telephoneClient     String
+  etatAvant           String?
+  etatApres           String?
+  materiauxUtilises   String?
+  observations        String?
+  notesLibres         String?
+  photosUrls          String?
+  rapportGenere       String?
+  rapportValide       Boolean   @default(false)
+  dateValidation      DateTime?
+  statut              String    @default("brouillon")
+  devis               Devis[]
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+// --- CMS ---
+
+model ContenuPage {
+  id        String   @id @default(cuid())
+  cle       String   @unique
+  valeur    String
+  pageSlug  String
+  section   String?
+  updatedAt DateTime @updatedAt
+}
+
+// --- Devis ---
+
+model Devis {
+  id                String      @id @default(cuid())
+  numero            String      @unique
+  dateDevis         DateTime    @default(now())
+  dateValidite      DateTime
+  clientNom         String
+  clientAdresse     String
+  clientTelephone   String
+  clientEmail       String?
+  adresseChantier   String
+  objetTravaux      String
+  delaiExecution    String?
+  conditionsPaiement String?
+  tauxTVA           Float       @default(10)
+  remiseType        String?
+  remiseMontant     Float?
+  totalHT           Float       @default(0)
+  totalTVA          Float       @default(0)
+  totalTTC          Float       @default(0)
+  statut            String      @default("brouillon")
+  reservationId     String?
+  reservation       Reservation? @relation(fields: [reservationId], references: [id])
+  interventionId    String?
+  intervention      Intervention? @relation(fields: [interventionId], references: [id])
+  emailEnvoye       Boolean     @default(false)
+  postes            DevisPoste[]
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+}
+
+model DevisPoste {
+  id            String       @id @default(cuid())
+  devisId       String
+  devis         Devis        @relation(fields: [devisId], references: [id], onDelete: Cascade)
+  numero        Int
+  type          String
+  intituleLibre String?
+  sousTotalHT   Float        @default(0)
+  lignes        DevisLigne[]
+  createdAt     DateTime     @default(now())
+}
+
+model DevisLigne {
+  id              String     @id @default(cuid())
+  posteId         String
+  poste           DevisPoste @relation(fields: [posteId], references: [id], onDelete: Cascade)
+  designation     String
+  unite           String
+  quantite        Float
+  prixUnitaireHT  Float
+  totalHT         Float
+}
+
+// --- Analytics ---
+
+model PageView {
+  id          String   @id @default(cuid())
+  pathname    String
+  referrer    String?
+  userAgent   String?
+  deviceType  String?
+  sessionHash String?
+  createdAt   DateTime @default(now())
+}
+
+// --- Config ---
+
+model Parametres {
+  id                    String @id @default("default")
+  nomEntreprise         String @default("")
+  telephone             String @default("")
+  email                 String @default("")
+  adresse               String @default("")
+  siret                 String @default("")
+  smtpHost              String @default("")
+  smtpPort              Int    @default(587)
+  smtpUser              String @default("")
+  smtpPass              String @default("")
+  cleApiClaude          String @default("")
+  numeroDevisCompteur   Int    @default(0)
+}
