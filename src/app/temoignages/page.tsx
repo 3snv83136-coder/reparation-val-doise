@@ -6,7 +6,7 @@ import { AggregateRatingJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-l
 export const metadata: Metadata = {
   title: "Avis clients vérifiés — Réparation Canalisation Val d'Oise",
   description: "Découvrez les avis et témoignages vérifiés de nos clients dans le Val d'Oise (95). Note moyenne 4.9/5. Consortium d'artisans canalisateurs recommandé.",
-  alternates: { canonical: "https://urgence-canalisation-valdoise.fr/temoignages" },
+  alternates: { canonical: "https://www.reparation-canalisation.fr/temoignages" },
 };
 
 // Avis statiques (compatibilité Vercel serverless — pas de SQLite au runtime)
@@ -24,8 +24,8 @@ export default function TemoignagesPage() {
   return (
     <div style={{ paddingBottom: 60 }}>
       <BreadcrumbJsonLd items={[
-        { name: "Accueil", url: "https://urgence-canalisation-valdoise.fr" },
-        { name: "Témoignages", url: "https://urgence-canalisation-valdoise.fr/temoignages" },
+        { name: "Accueil", url: "https://www.reparation-canalisation.fr" },
+        { name: "Témoignages", url: "https://www.reparation-canalisation.fr/temoignages" },
       ]} />
       <AggregateRatingJsonLd rating={avgNote} count={avisData.length} />
 

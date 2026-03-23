@@ -8,7 +8,7 @@ export function LocalBusinessJsonLd() {
     "@type": "Plumber",
     name: "Urgence Canalisation Val d'Oise",
     description: "Consortium d'artisans canalisateurs du Val d'Oise (95). Remplacement de canalisation en urgence, réparation de fuite, diagnostic caméra. Intervention rapide 7j/7.",
-    url: "https://urgence-canalisation-valdoise.fr",
+    url: "https://www.reparation-canalisation.fr",
     telephone: "+33606060606",
     email: "contact@urgence-canalisation.fr",
     areaServed: {

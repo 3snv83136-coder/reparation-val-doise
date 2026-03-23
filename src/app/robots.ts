@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/admin/*", "/api", "/api/*"],
       },
     ],
-    sitemap: "https://urgence-canalisation-valdoise.fr/sitemap.xml",
+    sitemap: "https://www.reparation-canalisation.fr/sitemap.xml",
   };
 }

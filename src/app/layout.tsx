@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Urgence Canalisation Val d'Oise",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://urgence-canalisation-valdoise.fr" },
+  alternates: { canonical: "https://www.reparation-canalisation.fr" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

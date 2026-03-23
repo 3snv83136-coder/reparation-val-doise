@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Réparation Canalisation ${city.name} (${city.postalCode}) | Intervention Urgente 7j/7`,
     description: `Artisan canalisateur à ${city.name} (${city.postalCode}). Remplacement de canalisation, réparation de fuite, diagnostic caméra. Intervention sous 1h, devis gratuit, garantie décennale. Consortium d'artisans du Val d'Oise.`,
-    alternates: { canonical: `https://urgence-canalisation-valdoise.fr/zone-intervention/${city.slug}` },
+    alternates: { canonical: `https://www.reparation-canalisation.fr/zone-intervention/${city.slug}` },
   };
 }
 
@@ -33,9 +33,9 @@ export default async function VillePage({ params }: Props) {
   return (
     <div style={{ paddingBottom: 60 }}>
       <BreadcrumbJsonLd items={[
-        { name: "Accueil", url: "https://urgence-canalisation-valdoise.fr" },
-        { name: "Zone d'intervention", url: "https://urgence-canalisation-valdoise.fr/zone-intervention" },
-        { name: city.name, url: `https://urgence-canalisation-valdoise.fr/zone-intervention/${city.slug}` },
+        { name: "Accueil", url: "https://www.reparation-canalisation.fr" },
+        { name: "Zone d'intervention", url: "https://www.reparation-canalisation.fr/zone-intervention" },
+        { name: city.name, url: `https://www.reparation-canalisation.fr/zone-intervention/${city.slug}` },
       ]} />
 
       {/* ═══ HERO ═══ */}

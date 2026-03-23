@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Guide Canalisation Val d'Oise — Conseils, Prix & Techniques",
   description:
     "Guides pratiques sur la canalisation dans le Val d'Oise (95) : problèmes fréquents, techniques de réparation, matériaux, prix et conseils par ville. Rédigés par nos artisans canalisateurs.",
-  alternates: { canonical: "https://urgence-canalisation-valdoise.fr/guide" },
+  alternates: { canonical: "https://www.reparation-canalisation.fr/guide" },
 };
 
 const categoryConfig: Record<string, { label: string; icon: typeof BookOpen; color: string }> = {
@@ -35,8 +35,8 @@ export default function GuidePage() {
     <div style={{ paddingBottom: 60 }}>
       <BreadcrumbJsonLd
         items={[
-          { name: "Accueil", url: "https://urgence-canalisation-valdoise.fr" },
-          { name: "Guide", url: "https://urgence-canalisation-valdoise.fr/guide" },
+          { name: "Accueil", url: "https://www.reparation-canalisation.fr" },
+          { name: "Guide", url: "https://www.reparation-canalisation.fr/guide" },
         ]}
       />
 

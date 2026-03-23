@@ -7,7 +7,7 @@ import { ServiceJsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Services canalisation urgence Val d'Oise (95) — Remplacement, Réparation, Diagnostic",
   description: "Nos 3 expertises en canalisation dans le Val d'Oise : remplacement de canalisation (fonte, PVC, PEHD), réparation de fuite, diagnostic caméra. Artisans certifiés, garantie décennale, devis gratuit.",
-  alternates: { canonical: "https://urgence-canalisation-valdoise.fr/services" },
+  alternates: { canonical: "https://www.reparation-canalisation.fr/services" },
 };
 
 const services = [
@@ -50,8 +50,8 @@ export default function ServicesPage() {
   return (
     <div style={{ paddingBottom: 60 }}>
       <BreadcrumbJsonLd items={[
-        { name: "Accueil", url: "https://urgence-canalisation-valdoise.fr" },
-        { name: "Services", url: "https://urgence-canalisation-valdoise.fr/services" },
+        { name: "Accueil", url: "https://www.reparation-canalisation.fr" },
+        { name: "Services", url: "https://www.reparation-canalisation.fr/services" },
       ]} />
       <ServiceJsonLd services={services.map((s) => ({ name: s.title, description: s.description.slice(0, 200), price: s.prix }))} />
 

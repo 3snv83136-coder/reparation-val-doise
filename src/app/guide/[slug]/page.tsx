@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: page.metaTitle,
     description: page.metaDesc,
-    alternates: { canonical: `https://urgence-canalisation-valdoise.fr/guide/${page.slug}` },
+    alternates: { canonical: `https://www.reparation-canalisation.fr/guide/${page.slug}` },
   };
 }
 
@@ -41,9 +41,9 @@ export default async function GuidePage({ params }: Props) {
   return (
     <div style={{ paddingBottom: 60 }}>
       <BreadcrumbJsonLd items={[
-        { name: "Accueil", url: "https://urgence-canalisation-valdoise.fr" },
-        { name: "Guide", url: "https://urgence-canalisation-valdoise.fr/guide" },
-        { name: page.h1, url: `https://urgence-canalisation-valdoise.fr/guide/${page.slug}` },
+        { name: "Accueil", url: "https://www.reparation-canalisation.fr" },
+        { name: "Guide", url: "https://www.reparation-canalisation.fr/guide" },
+        { name: page.h1, url: `https://www.reparation-canalisation.fr/guide/${page.slug}` },
       ]} />
 
       {/* Header */}

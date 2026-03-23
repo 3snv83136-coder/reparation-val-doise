@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getAllCitySlugs } from "@/lib/cities";
 import { getAllLongtailSlugs } from "@/lib/longtails";
 
-const BASE_URL = "https://urgence-canalisation-valdoise.fr";
+const BASE_URL = "https://www.reparation-canalisation.fr";
 
 // Fixed date so lastmod doesn't change on every build — update manually when content changes
 const LAST_CONTENT_UPDATE = "2026-03-23T00:00:00.000Z";
